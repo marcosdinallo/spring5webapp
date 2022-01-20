@@ -1,6 +1,8 @@
 package guru.springframework.spring5webapp.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Publisher {
@@ -14,6 +16,9 @@ public class Publisher {
     private String state;
     @Column(name = "zip_code")
     private String zipCode;
+    @OneToMany
+    @JoinColumn(name = "publisher_id")
+    private Set<Book> books = new HashSet<>();
 
     public Publisher() {
     }
@@ -60,6 +65,14 @@ public class Publisher {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
     }
 
     @Override
