@@ -19,7 +19,11 @@ public class Author {
     public Author() {
     }
 
-    public Author(String firstName, String lastName) {
+    public static Author fromFullName(String firstName, String lastName) {
+        return new Author(firstName, lastName);
+    }
+
+    private Author(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }

@@ -35,7 +35,7 @@ public class Bootstrap implements CommandLineRunner {
 
         System.out.println("Publisher Count: " + publisherRepository.count());
 
-        Author eric = new Author("Eric", "Evans");
+        Author eric = Author.fromFullName("Eric", "Evans");
         Book ddd = new Book("Domain Driven Design", "123123");
         eric.getBooks().add(ddd);
         ddd.getAuthors().add(eric);
@@ -43,7 +43,7 @@ public class Bootstrap implements CommandLineRunner {
         authorRepository.save(eric);
         bookRepository.save(ddd);
 
-        Author rod = new Author("Rod", "Johnson");
+        Author rod = Author.fromFullName("Rod", "Johnson");
         Book noEJB = new Book("J2EE Development without EJB", "3939459459");
         rod.getBooks().add(noEJB);
         noEJB.getAuthors().add(rod);
